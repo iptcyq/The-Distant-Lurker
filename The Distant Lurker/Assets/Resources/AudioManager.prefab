@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3172391804322774010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3172391804322774004}
+  - component: {fileID: 3172391804322774011}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3172391804322774004
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3172391804322774010}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 126.85612, y: 73.7778, z: -294.31516}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3172391804322774011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3172391804322774010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3210347769b4e444dae7e5fd0f0c320e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: rickroll
+    clip: {fileID: 8300000, guid: 6faa7ac2d1cc210438258acdf063c9a5, type: 3}
+    Volume: 0.5
+    Pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: theme
+    clip: {fileID: 8300000, guid: 279c1fc6e646d7547b43b2b2ff7fafc9, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: connect
+    clip: {fileID: 8300000, guid: 575679fb255a68c48a9c2090ee41054c, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: click
+    clip: {fileID: 8300000, guid: 54a9183cf7a70814d90cef8deb7b2408, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: clickfail
+    clip: {fileID: 8300000, guid: 6d117c289f6715f4d885460c4900f204, type: 3}
+    Volume: 0.8
+    Pitch: 1
+    loop: 0
+    source: {fileID: 0}

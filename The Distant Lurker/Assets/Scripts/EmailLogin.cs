@@ -33,7 +33,7 @@ public class EmailLogin : MonoBehaviour
         "  ",
         "password",
         "112233",
-        "ILoveC4ts",
+        "iLoveC4ts",
         "c0mp1ic4t3d",
         "UnicornRainbowSparkles"
     };
@@ -110,6 +110,7 @@ public class EmailLogin : MonoBehaviour
                 if(pw == loginDetails[i])
                 {
                     indexNo = i;
+                    FindObjectOfType<AudioManager>().Play("click");
 
                     //passed all 
                     AccID.text = "Account: " + id;
@@ -138,6 +139,7 @@ public class EmailLogin : MonoBehaviour
 
     private void FailedVerif(int index)
     {
+        FindObjectOfType<AudioManager>().Play("clickfail");
         string ReturnMsg;
         if (index == 0)
         {

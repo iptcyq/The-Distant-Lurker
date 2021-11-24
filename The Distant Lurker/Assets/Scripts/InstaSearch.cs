@@ -67,12 +67,16 @@ public class InstaSearch : MonoBehaviour
                     GameObject instance = Instantiate(Resources.Load(LoadedImage, typeof(GameObject))) as GameObject;
                     instance.transform.SetParent(gameObject.transform);
                     instance.transform.localScale = new Vector2(1, 1);
+
+                    FindObjectOfType<AudioManager>().Play("click");
                 }
-                break; 
+                return; 
             }
 
         }
-        
+
+        FindObjectOfType<AudioManager>().Play("clickfail");
+
     }
 
     private void DeleteResults()

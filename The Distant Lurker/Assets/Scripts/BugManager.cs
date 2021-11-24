@@ -110,12 +110,14 @@ public class BugManager : MonoBehaviour
             index = 0;
         }
         disconnectedText.enabled = false;
+        FindObjectOfType<AudioManager>().Play("connect");
         visualizer.SetActive(true);
         StartCoroutine(Type());
     }
 
     public void StopVideo()
     {
+        FindObjectOfType<AudioManager>().Play("clickfail");
         visualizer.SetActive(false);
         disconnectedText.enabled = true;
     }
@@ -143,8 +145,13 @@ public class BugManager : MonoBehaviour
                 {
                     currentGameState = GameState.haha;
                 }
+
+                FindObjectOfType<AudioManager>().Play("click");
+                return;
             }
         }
+
+        FindObjectOfType<AudioManager>().Play("clickfail");
     }
 
 
