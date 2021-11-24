@@ -34,6 +34,7 @@ public class tabGroup : MonoBehaviour
 
     public void OnTabSelected(tabButton button)
     {
+        FindObjectOfType<AudioManager>().Play("click");
         selectedTab = button;
         ResetTabs();
         

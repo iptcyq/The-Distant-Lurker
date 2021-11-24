@@ -49,7 +49,7 @@ public class EmailLogin : MonoBehaviour
         "pew pew haha",
         "To Albino Lange, HR Manager," + "\n" + "Hi, I am Luciana, attached below is my leave application, please have a look through it when you are available. Thanks in advance!",
         "To Simon Sharp, Technical Support, Hi the printer near the lift the printer is broken again.",
-        "idk what yet", //idk what to put yet (no plot)
+        "Connect to final.com to obtain the staff and clients list.", //idk what to put yet (no plot)
         "To Sally," + "\n" + "Yay my dad got me a ticket to the concert we talked about in class! Want one too? We can go together!",
     };
     private string[] Text2 = new string[]
@@ -58,7 +58,7 @@ public class EmailLogin : MonoBehaviour
         "test?",
         "To Albino Lange," + "\n" + "Hey can you process my application faster, I know you don't check your office mail so I emailed your personal email, don't mind me. :)" + "\n" + "From your really annoyed friend Luciana",
         "To Nerthus Albani, Finance, Luciana Joubert, Admin," + "\n" + " NO LEAVE FOR BOTH OF YOU FOCUS ON GETTING YOUR JOB DONE BEFORE YOU EVEN THINK ABOUT GETTING TIME OFF TO SLACK",
-        "smth", //idk too
+        "Connect to final.com to obtain the staff and clients list.", //idk too
         "To Sally," + "\n" + "I realised i can use 'mobilephone.com' to connect to my dad's mobile. I wonder what he does every day...",
     };
 

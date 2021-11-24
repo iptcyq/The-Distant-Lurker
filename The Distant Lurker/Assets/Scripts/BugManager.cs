@@ -13,26 +13,33 @@ public class BugManager : MonoBehaviour
 
     public enum GameState //stage names? stage audio
     {
-        start, stage1, stage2, haha
+        haha, start, stage1, stage2, end, 
     };
     public GameState currentGameState;
+
+    private int i = 0;
 
     //check link
     public TMP_InputField inputLink;
     private string[] links = new string[]
     {
+        "rickroll.com",
         "bug.com",
         "cctv.com",
         "mobilephone.com",
-        "rickroll.com"
+        "final.com",
     };
     private string link;
 
     private string[] sentences = new string[]
     {
         "*Musical interlude*",
-        "Sentence1",
-        "sentence2",
+        "UNKNOWN: Hey Luciana, what are your email details again? \n LUCIANA: Full names are always usernames, so Luciana Joubert, and my password is 112233. \n UNKOWN: Got it, thanks!",
+        "UNKNOWN: Hey boss. \n BOSS: We're in a secret organisation, don't call me by my role! \n UNKNOWN: Okay sorry boss.", 
+        "UNKNOWN: Hey Mr Louvre Saller, have you seen Simon? \n LOUVRE SALLER: Yeah, he's probably by the coffee stand.",
+        "VIONA SALLER: Dad, what is your bank account password? I want to get a new toy! \n LOUVRE SALLER: Its c0mp1ic4t3d. \n VIONA SALLER: Oh wow ok.",
+        "VIONA SALLER: Dad, why do your accounts all have the same password? \n LOUVRE SALLER: It's so that it is easy to remember, you'll understand when you're older.",
+        "Muahahahaha you fell for my trap. blah blah blah",
     };
     public TextMeshProUGUI textdisp;
     private int index;
@@ -58,23 +65,10 @@ public class BugManager : MonoBehaviour
     //add a index - [0 for playing audio] [1 for playing video]
     public void PlayVideo()
     {
-        int i = Random.Range(0, 2);
-
-        currentGameState = GameState.haha; //temporary
-
+        
         if(currentGameState == GameState.start)
         {
-            //write starting audio name
-            if (i == 0)
-            {
-                //audio1
-                index = 1;
-            }
-            else
-            {
-                //audio2
-                index = 2;
-            }
+            index = 1;
         }
         else if (currentGameState == GameState.stage1)
         {
@@ -82,12 +76,12 @@ public class BugManager : MonoBehaviour
             if (i == 0)
             {
                 //audio1
-                index = 3;
+                index = 2;
             }
             else
             {
                 //audio2
-                index = 4;
+                index = 3;
             }
         }
         else if (currentGameState == GameState.stage2)
@@ -96,13 +90,17 @@ public class BugManager : MonoBehaviour
             if (i == 0)
             {
                 //audio1
-                index = 5;
+                index = 4;
             }
             else
             {
                 //audio2
-                index = 6;
+                index = 5;
             }
+        }
+        else if (currentGameState == GameState.end)
+        {
+            index = 6;
         }
         else if (currentGameState == GameState.haha)
         {
@@ -110,9 +108,12 @@ public class BugManager : MonoBehaviour
             index = 0;
         }
         disconnectedText.enabled = false;
+
         FindObjectOfType<AudioManager>().Play("connect");
         visualizer.SetActive(true);
+
         StartCoroutine(Type());
+        i++;
     }
 
     public void StopVideo()
@@ -131,19 +132,23 @@ public class BugManager : MonoBehaviour
             {
                 if(i == 0)
                 {
-                    currentGameState = GameState.start;
+                    currentGameState = GameState.haha;
                 }
                 else if (i == 1)
                 {
-                    currentGameState = GameState.stage1;
+                    currentGameState = GameState.start;
                 }
                 else if (i == 2)
+                {
+                    currentGameState = GameState.stage1;
+                }
+                else if (i == 3)
                 {
                     currentGameState = GameState.stage2;
                 }
                 else
                 {
-                    currentGameState = GameState.haha;
+                    currentGameState = GameState.end;
                 }
 
                 FindObjectOfType<AudioManager>().Play("click");
