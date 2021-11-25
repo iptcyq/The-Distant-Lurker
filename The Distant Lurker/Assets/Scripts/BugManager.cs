@@ -13,6 +13,7 @@ public class BugManager : MonoBehaviour
     private AudioManager audioManager;
 
     public Button connectBut;
+    public GameObject endTab;
 
     public enum GameState //stage names? stage audio
     {
@@ -52,6 +53,7 @@ public class BugManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        endTab.SetActive(false);
         audioManager = FindObjectOfType<AudioManager>();
         //visualizer.SetActive(false);
         disconnectedText.enabled = true;
@@ -193,6 +195,14 @@ public class BugManager : MonoBehaviour
             yield return new WaitForSeconds(typeSpeed);
         }
         connectBut.enabled = true;
+
+        if (currentGameState == GameState.end)
+        {
+            if (FindObjectOfType<AudioManager>().audioPlay("theme"))
+            {
+                endTab.SetActive(true);
+            }
+        }
     }
 
     IEnumerator Reactivate(float time)
@@ -201,6 +211,10 @@ public class BugManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         if (!FindObjectOfType<AudioManager>().audioPlay("theme"))
         {
+            if (currentGameState == GameState.end) //end everything
+            {
+                endTab.SetActive(true);
+            }
             StopVideo();
         }
         
