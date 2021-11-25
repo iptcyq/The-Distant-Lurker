@@ -201,6 +201,7 @@ public class BugManager : MonoBehaviour
             if (FindObjectOfType<AudioManager>().audioPlay("theme"))
             {
                 endTab.SetActive(true);
+                FindObjectOfType<AudioManager>().Play("connect");
             }
         }
     }
@@ -214,6 +215,7 @@ public class BugManager : MonoBehaviour
             if (currentGameState == GameState.end) //end everything
             {
                 endTab.SetActive(true);
+                FindObjectOfType<AudioManager>().Play("connect");
             }
             StopVideo();
         }

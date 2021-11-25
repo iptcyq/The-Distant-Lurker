@@ -46,66 +46,77 @@ MonoBehaviour:
   sounds:
   - name: rickroll
     clip: {fileID: 8300000, guid: 6faa7ac2d1cc210438258acdf063c9a5, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 0.5
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: theme
     clip: {fileID: 8300000, guid: 279c1fc6e646d7547b43b2b2ff7fafc9, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 0.8
     Pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: connect
     clip: {fileID: 8300000, guid: 575679fb255a68c48a9c2090ee41054c, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 0.3
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: click
     clip: {fileID: 8300000, guid: 54a9183cf7a70814d90cef8deb7b2408, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 0.3
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: clickfail
     clip: {fileID: 8300000, guid: 6d117c289f6715f4d885460c4900f204, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 0.3
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 6end
     clip: {fileID: 8300000, guid: 891f4a6c4b1cd0f4ca3e3a012248633e, type: 3}
+    group: {fileID: 0}
     Volume: 1
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 1start
     clip: {fileID: 8300000, guid: 31133e6807462fb428c1ddc10e977e37, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 2stage1
     clip: {fileID: 8300000, guid: e3ca9eef69fada341a03c2effad8bde1, type: 3}
+    group: {fileID: 0}
     Volume: 1
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 3stage1
     clip: {fileID: 8300000, guid: 60009104218ba104bb4c76f86db57470, type: 3}
+    group: {fileID: 0}
     Volume: 1
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 4stage2
     clip: {fileID: 8300000, guid: 274f768b76eb8b346955f46548ba04f0, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 5stage2
     clip: {fileID: 8300000, guid: 9360ab46f77292946a3a62ea73ea72d7, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
     loop: 0

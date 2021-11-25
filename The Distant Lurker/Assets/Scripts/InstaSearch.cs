@@ -42,6 +42,7 @@ public class InstaSearch : MonoBehaviour
 
     public void EnterSearch()
     {
+        DeleteResults();
         //enter input
         searched = inputField.text;
 
