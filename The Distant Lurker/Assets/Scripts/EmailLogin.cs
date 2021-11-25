@@ -45,21 +45,21 @@ public class EmailLogin : MonoBehaviour
 
     private string[] Text1 = new string[]
     {
-        "From Admin," + "\n" + "Welcome to Email, the best place for all your mail.", //tutorial
+        "From Admin, \n Welcome to Email, the best place for all your mail.", //tutorial
         "pew pew haha",
-        "To Albino Lange, HR Manager," + "\n" + "Hi, I am Luciana, attached below is my leave application, please have a look through it when you are available. Thanks in advance!",
+        "To Albino Lange, HR Manager, \n Hi, I am Luciana, attached below is my leave application, please have a look through it when you are available. Thanks in advance!",
         "To Simon Sharp, Technical Support, Hi the printer near the lift the printer is broken again.",
-        "Connect to final.com to obtain the staff and clients list.", //idk what to put yet (no plot)
-        "To Sally," + "\n" + "Yay my dad got me a ticket to the concert we talked about in class! Want one too? We can go together!",
+        "Connect to final.com to obtain the staff and clients list.", 
+        "To Sally, \n Yay my dad got me a ticket to the concert we talked about in class! Want one too? We can go together!",
     };
     private string[] Text2 = new string[]
     {
-        "From Admin," + "\n" + "On the right you can log into your email account with your name and password. While here, you can read the emails you sent and received.", //inadvertant tutorial
+        "From Admin, \n On the right you can log into your email account with your name and password. While here, you can read the emails you sent and received.", 
         "test?",
-        "To Albino Lange," + "\n" + "Hey can you process my application faster, I know you don't check your office mail so I emailed your personal email, don't mind me. :)" + "\n" + "From your really annoyed friend Luciana",
-        "To Nerthus Albani, Finance, Luciana Joubert, Admin," + "\n" + " NO LEAVE FOR BOTH OF YOU FOCUS ON GETTING YOUR JOB DONE BEFORE YOU EVEN THINK ABOUT GETTING TIME OFF TO SLACK",
-        "Connect to final.com to obtain the staff and clients list.", //idk too
-        "To Sally," + "\n" + "I realised i can use 'mobilephone.com' to connect to my dad's mobile. I wonder what he does every day...",
+        "To Albino Lange," + "\n" + "Hey can you process my application faster, I know you don't check your office mail so I emailed your personal email, don't mind me. :) \n From your really annoyed friend Luciana",
+        "To Nerthus Albani, Finance, Luciana Joubert, Admin, \n NO LEAVE FOR BOTH OF YOU FOCUS ON GETTING YOUR JOB DONE BEFORE YOU EVEN THINK ABOUT GETTING TIME OFF TO SLACK",
+        "Connect to final.com to obtain the staff and clients list.",
+        "To Sally, \n I realised i can use 'mobilephone.com' to connect to my dad's mobile. I wonder what he does every day...",
     };
 
     //email avatar

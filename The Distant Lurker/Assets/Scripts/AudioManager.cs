@@ -53,4 +53,19 @@ public class AudioManager : MonoBehaviour
     {
         Play("theme");
     }
+
+    public float audioLength(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        float length = s.source.clip.length;
+        return length;
+    }
+
+    public bool audioPlay(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        bool y = s.source.isPlaying;
+        return y;
+
+    }
 }
