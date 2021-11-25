@@ -40,9 +40,8 @@ public class InstaSearch : MonoBehaviour
 
 
 
-    public void EnterSearch()
+    private void EnterSearch()
     {
-        DeleteResults();
         //enter input
         searched = inputField.text;
 
@@ -76,6 +75,16 @@ public class InstaSearch : MonoBehaviour
 
         }
 
+        for (int j = 0; j < (input[0].Length - 1); j++)
+        {
+            LoadedImage = results[0][j];
+            //load images in
+            GameObject instance = Instantiate(Resources.Load(LoadedImage, typeof(GameObject))) as GameObject;
+            instance.transform.SetParent(gameObject.transform);
+            instance.transform.localScale = new Vector2(1, 1);
+
+            FindObjectOfType<AudioManager>().Play("click");
+        }
         FindObjectOfType<AudioManager>().Play("clickfail");
 
     }
@@ -97,8 +106,13 @@ public class InstaSearch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            DeleteResults();
-            EnterSearch();
+            Search();
         }
+    }
+
+    public void Search()
+    {
+        DeleteResults();
+        EnterSearch();
     }
 }
