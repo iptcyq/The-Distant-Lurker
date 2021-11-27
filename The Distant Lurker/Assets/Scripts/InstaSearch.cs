@@ -29,12 +29,12 @@ public class InstaSearch : MonoBehaviour
     private string[] input = new string[]
     {
         "",//Set as HomeScreen
-        "JOHN DOE",
-        "ALBINO LANGE",
-        "SIMON SHARP",
-        "NERTHUS ALBANI",
-        "VIONA SALLER",
-        "LOUVRE SALLER",
+        "JOHNDOE",
+        "ALBINOLANGE",
+        "SIMONSHARP",
+        "NERTHUSALBANI",
+        "VIONASALLER",
+        "LOUVRESALLER",
         "IPTCYQ"
     };
 
@@ -49,6 +49,7 @@ public class InstaSearch : MonoBehaviour
         {
             searched = searched.ToUpper(); //to ensure all inputs are the same
             searched = searched.Trim( );
+            searched = searched.Replace(" ", "");
         }
         else
         {

@@ -22,6 +22,7 @@ public class BugManager : MonoBehaviour
     public GameState currentGameState;
 
     private int i = 0;
+    private bool typing = false;
 
     //check link
     public TMP_InputField inputLink;
@@ -72,61 +73,64 @@ public class BugManager : MonoBehaviour
     //add a index - [0 for playing audio] [1 for playing video]
     public void PlayVideo()
     {
-        
-        if(currentGameState == GameState.start)
+        if (!typing)
         {
-            audioName = "1start";
-            index = 1;
-        }
-        else if (currentGameState == GameState.stage1)
-        {
-            //write next audio name
-            if (i == 0)
+            if (currentGameState == GameState.start)
             {
-                audioName = "2stage1";
-                index = 2;
+                audioName = "1start";
+                index = 1;
             }
-            else
+            else if (currentGameState == GameState.stage1)
             {
-                audioName = "3stage1";
-                index = 3;
+                //write next audio name
+                if (i == 0)
+                {
+                    audioName = "2stage1";
+                    index = 2;
+                }
+                else
+                {
+                    audioName = "3stage1";
+                    index = 3;
+                }
             }
-        }
-        else if (currentGameState == GameState.stage2)
-        {
-            //write last audio name
-            if (i == 0)
+            else if (currentGameState == GameState.stage2)
             {
-                audioName = "4stage2";
-                index = 4;
+                //write last audio name
+                if (i == 0)
+                {
+                    audioName = "4stage2";
+                    index = 4;
+                }
+                else
+                {
+                    audioName = "5stage2";
+                    index = 5;
+                }
             }
-            else
+            else if (currentGameState == GameState.end)
             {
-                audioName = "5stage2";
-                index = 5;
+                audioName = "6end";
+                index = 6;
             }
-        }
-        else if (currentGameState == GameState.end)
-        {
-            audioName = "6end";
-            index = 6;
-        }
-        else if (currentGameState == GameState.haha)
-        {
-            audioName = "rickroll";
-            index = 0;
-        }
-        disconnectedText.enabled = false;
+            else if (currentGameState == GameState.haha)
+            {
+                audioName = "rickroll";
+                index = 0;
+            }
+            disconnectedText.enabled = false;
 
-        FindObjectOfType<AudioManager>().Play("connect");
-        visualizer.SetActive(true);
-        
-        float l = FindObjectOfType<AudioManager>().audioLength(audioName);
-        StartCoroutine(Reactivate(l));
+            FindObjectOfType<AudioManager>().Play("connect");
+            visualizer.SetActive(true);
 
-        StartCoroutine(Type());
-        if (i == 0) { i++; }
-        else { i--; }
+            float l = FindObjectOfType<AudioManager>().audioLength(audioName);
+            StartCoroutine(Reactivate(l));
+
+            StartCoroutine(Type());
+            if (i == 0) { i++; }
+            else { i--; }
+        }
+        
     }
 
     public void StopVideo()
@@ -143,6 +147,7 @@ public class BugManager : MonoBehaviour
 
     public void EnterLink()
     {
+        
         link = inputLink.text;
         for(int i =0; i < links.Length; i++)
         {
@@ -186,6 +191,7 @@ public class BugManager : MonoBehaviour
     //to make sure it doesnt do funky stuff, check textdisp.text == sentences[index] before calling this
     IEnumerator Type()
     {
+        typing = true;
         connectBut.enabled = false;
 
         textdisp.text = "";
@@ -194,6 +200,8 @@ public class BugManager : MonoBehaviour
             textdisp.text += letter;
             yield return new WaitForSeconds(typeSpeed);
         }
+
+        typing = false;
         connectBut.enabled = true;
 
         if (currentGameState == GameState.end)
@@ -201,7 +209,7 @@ public class BugManager : MonoBehaviour
             if (FindObjectOfType<AudioManager>().audioPlay("theme"))
             {
                 endTab.SetActive(true);
-                FindObjectOfType<AudioManager>().Play("connect");
+                FindObjectOfType<AudioManager>().Play("end");
             }
         }
     }
@@ -215,7 +223,7 @@ public class BugManager : MonoBehaviour
             if (currentGameState == GameState.end) //end everything
             {
                 endTab.SetActive(true);
-                FindObjectOfType<AudioManager>().Play("connect");
+                FindObjectOfType<AudioManager>().Play("end");
             }
             StopVideo();
         }

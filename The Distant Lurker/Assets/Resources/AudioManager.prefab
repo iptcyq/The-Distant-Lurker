@@ -95,14 +95,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: 2stage1
     clip: {fileID: 8300000, guid: e3ca9eef69fada341a03c2effad8bde1, type: 3}
-    group: {fileID: 0}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: 3stage1
     clip: {fileID: 8300000, guid: 60009104218ba104bb4c76f86db57470, type: 3}
-    group: {fileID: 0}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
     loop: 0
@@ -119,5 +119,12 @@ MonoBehaviour:
     group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: end
+    clip: {fileID: 8300000, guid: 5f27c745afe15f74e82bf03de46ae242, type: 3}
+    group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
+    Volume: 0.4
+    Pitch: 0.9
     loop: 0
     source: {fileID: 0}
