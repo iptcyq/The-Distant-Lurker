@@ -70,12 +70,4 @@ public class AudioManager : MonoBehaviour
         return y;
 
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape)) //only do for non web build
-        {
-            Screen.fullScreen = false;
-        }
-    }
 }
