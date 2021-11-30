@@ -12,6 +12,12 @@ public class InstaSearch : MonoBehaviour
     public string searched = "";
     private string LoadedImage;
 
+    //hint stuff
+    private bool fourthTime = true;
+    private bool fifthTime = true;
+
+    public GameObject hint4;
+    public GameObject hint5;
 
     //list thing for all people and names and stuff
     private string[][] results = new string[][]
@@ -57,11 +63,11 @@ public class InstaSearch : MonoBehaviour
         }
         
         //check against the private list to find names of searched images
-        for(int i=0; i < input.Length; i++)
+        for(int i=0; i < input.Length ; i++)
         {
             if(searched == input[i])
             {
-                for (int j=0; j<(input[i].Length -1); j++)
+                for (int j=0; j<(input[i].Length ); j++)
                 {
                     LoadedImage = results[i][j];
                     //load images in
@@ -70,12 +76,18 @@ public class InstaSearch : MonoBehaviour
                     instance.transform.localScale = new Vector2(1, 1);
 
                     FindObjectOfType<AudioManager>().Play("click");
+
+                    if (i == 2 && fourthTime)
+                    {FindObjectOfType<AudioManager>().Play("connect"); hint4.SetActive(true);fourthTime = false; } // if its albino lange
+                    if (i == 3 && fifthTime)
+                    { FindObjectOfType<AudioManager>().Play("connect"); hint5.SetActive(true); fifthTime = false; } // if its simon sharp
                 }
                 return; 
             }
 
         }
 
+        //if what is searched is not on the list
         for (int j = 0; j < (input[0].Length - 1); j++)
         {
             LoadedImage = results[0][j];
@@ -83,8 +95,7 @@ public class InstaSearch : MonoBehaviour
             GameObject instance = Instantiate(Resources.Load(LoadedImage, typeof(GameObject))) as GameObject;
             instance.transform.SetParent(gameObject.transform);
             instance.transform.localScale = new Vector2(1, 1);
-
-            FindObjectOfType<AudioManager>().Play("click");
+            
         }
         FindObjectOfType<AudioManager>().Play("clickfail");
 
@@ -100,6 +111,9 @@ public class InstaSearch : MonoBehaviour
     }
     private void Start()
     {
+        fourthTime = true;
+        fifthTime = true;
+
         EnterSearch();
     }
 

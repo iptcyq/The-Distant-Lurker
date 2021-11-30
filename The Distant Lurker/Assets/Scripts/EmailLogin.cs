@@ -22,11 +22,11 @@ public class EmailLogin : MonoBehaviour
     private string[] userID = new string[]
     {
         "  ", //default
-        "JOHN DOE",
-        "LUCIANA JOUBERT",
-        "ALBINO LANGE",
-        "LOUVRE SALLER",
-        "VIONA SALLER"
+        "JOHNDOE",
+        "LUCIANAJOUBERT",
+        "ALBINOLANGE",
+        "LOUVRESALLER",
+        "VIONASALLER"
     };
     private string[] loginDetails = new string[]
     {
@@ -66,9 +66,15 @@ public class EmailLogin : MonoBehaviour
     public Image img;
     public Sprite[] avatars; //in order of userID
 
+    //hints stuff
+    private bool thirdTime = true;
+    public GameObject hint3;
+
     //start
     void Start()
-    { 
+    {
+        thirdTime = true;
+
         AccID.GetComponent<TextMeshProUGUI>().text = "Account: " + currentID;
     }
 
@@ -88,6 +94,8 @@ public class EmailLogin : MonoBehaviour
         {
             id = id.ToUpper();
             id = id.Trim();
+
+            id = id.Replace(" ", "");
         }
         else {
             FailedVerif(0);
@@ -122,8 +130,14 @@ public class EmailLogin : MonoBehaviour
 
                     //change avatar
                     img.sprite = avatars[i];
+                    
+                    if (i == 2 && thirdTime)
+                    {
+                        FindObjectOfType<AudioManager>().Play("connect");
+                        hint3.SetActive(true);
+                        thirdTime = false;
+                    }
 
-                    Debug.Log("Login successful! Welcome " + id);
                     return;
 
                 }

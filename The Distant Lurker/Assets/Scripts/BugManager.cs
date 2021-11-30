@@ -8,21 +8,32 @@ public class BugManager : MonoBehaviour
 {
     //bug manager
     public TextMeshProUGUI disconnectedText;
-    public string audioName = "rickroll";
+    public string audioName = "interlude";
     public GameObject visualizer;
     private AudioManager audioManager;
 
     public Button connectBut;
     public GameObject endTab;
+    public tabButton endtab;
+
+    private tabGroup tg;
 
     public enum GameState //stage names? stage audio
     {
-        haha, start, stage1, stage2, end, 
+        haha, start, stage1, stage2, end, interlude,
     };
     public GameState currentGameState;
 
+    //debugging
     private int i = 0;
     private bool typing = false;
+
+    //hints stuff
+    private bool firstTime = true;
+    private bool secondTime = true;
+
+    public GameObject hint1;
+    public GameObject hint2;
 
     //check link
     public TMP_InputField inputLink;
@@ -38,8 +49,8 @@ public class BugManager : MonoBehaviour
 
     private string[] sentences = new string[]
     {
-        "*Musical interlude* \n Please enter a link in the field above to connect to your bug. \n Connect to bug.com (The Distant Lurker) to start.",
-        "UNKNOWN: Hey Luciana, what are your email details again? \n LUCIANA: Full names are always usernames, so Luciana Joubert, and my password is 112233. \n UNKNOWN: Got it, thanks! \n \n Maybe log into her email (3rd tab) with the details she gave Something useful might crop up! ",
+        "*Musical interlude* \n Please enter a link in the field above to connect to your bug. ",
+        "UNKNOWN: Hey Luciana, what are your email details again? \n LUCIANA: Full names are always usernames, so Luciana Joubert, and my password is 112233. \n UNKNOWN: Got it, thanks!",
         "UNKNOWN: Hey boss. \n BOSS: We're in a secret organisation, don't call me by my role! \n UNKNOWN: Okay sorry boss. \n \n (Remember that you can click connect again to listen into different bugged conversations!)", 
         "UNKNOWN: Hey Mr Louvre Saller, have you seen Simon? \n LOUVRE SALLER: Yeah, he's probably by the coffee stand. \n UNKNOWN: Thanks! \n \n (Maybe I can search up the boss's name on Instasnap.)",
         "VIONA SALLER: Dad, what is your bank account password? I want to get a new toy! \n LOUVRE SALLER: Its  c0mp1ic4t3d \n I should probably type it out for you. \n VIONA SALLER: Oh wow ok. \n \n (Remember that you can click connect again to listen into different bugged conversations!)",
@@ -54,12 +65,26 @@ public class BugManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        endTab.SetActive(false);
-        audioManager = FindObjectOfType<AudioManager>();
-        //visualizer.SetActive(false);
-        disconnectedText.enabled = true;
+        firstTime = true;
+        secondTime = true;
 
-        currentGameState = GameState.haha;
+        endTab.SetActive(false);
+        tg = FindObjectOfType<tabGroup>();
+        audioManager = FindObjectOfType<AudioManager>();
+
+        disconnectedText.enabled = true;
+        currentGameState = GameState.interlude;
+    }
+
+
+    private void OnDisable()
+    {
+        if (!FindObjectOfType<AudioManager>().audioPlay("theme") || (typing))
+        {
+            typing = false;
+            FindObjectOfType<AudioManager>().Stop(audioName);
+            StopVideo();
+        }
     }
 
     private void Update()
@@ -67,6 +92,15 @@ public class BugManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             EnterLink();
+        }
+
+        if (typing)
+        {
+            connectBut.enabled = false;
+        }
+        else
+        {
+            connectBut.enabled = true;
         }
     }
 
@@ -117,6 +151,10 @@ public class BugManager : MonoBehaviour
             {
                 audioName = "rickroll";
                 index = 0;
+            }
+            else
+            {
+                audioName = "interlude";
             }
             disconnectedText.enabled = false;
 
@@ -169,9 +207,13 @@ public class BugManager : MonoBehaviour
                 {
                     currentGameState = GameState.stage2;
                 }
-                else
+                else if (i == 0)
                 {
                     currentGameState = GameState.haha;
+                }
+                else
+                {
+                    currentGameState = GameState.interlude;
                 }
 
                 FindObjectOfType<AudioManager>().Play("click");
@@ -192,7 +234,6 @@ public class BugManager : MonoBehaviour
     IEnumerator Type()
     {
         typing = true;
-        connectBut.enabled = false;
 
         textdisp.text = "";
         foreach(char letter in sentences[index].ToCharArray())
@@ -202,7 +243,6 @@ public class BugManager : MonoBehaviour
         }
 
         typing = false;
-        connectBut.enabled = true;
 
         if (currentGameState == GameState.end)
         {
@@ -210,8 +250,13 @@ public class BugManager : MonoBehaviour
             {
                 endTab.SetActive(true);
                 FindObjectOfType<AudioManager>().Play("end");
+                tg.OnTabSelected(endtab);
             }
         }
+        else if (currentGameState == GameState.interlude && firstTime)
+        {  FindObjectOfType<AudioManager>().Play("connect"); hint1.SetActive(true); firstTime = false; }
+        else if (currentGameState == GameState.stage1 && secondTime)
+        {  FindObjectOfType<AudioManager>().Play("connect"); hint2.SetActive(true); secondTime = false; }
     }
 
     IEnumerator Reactivate(float time)
@@ -224,16 +269,11 @@ public class BugManager : MonoBehaviour
             {
                 endTab.SetActive(true);
                 FindObjectOfType<AudioManager>().Play("end");
+                tg.OnTabSelected(endtab);
             }
             StopVideo();
         }
         
     }
-
-    private void OnEnable()
-    {
-        FindObjectOfType<AudioManager>().Stop(audioName);
-
-        FindObjectOfType<AudioManager>().Play("theme");
-    }
+    
 }

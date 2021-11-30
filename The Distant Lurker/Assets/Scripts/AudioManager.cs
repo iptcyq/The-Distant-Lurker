@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -68,5 +69,13 @@ public class AudioManager : MonoBehaviour
         bool y = s.source.isPlaying;
         return y;
 
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) //only do for non web build
+        {
+            Screen.fullScreen = false;
+        }
     }
 }
