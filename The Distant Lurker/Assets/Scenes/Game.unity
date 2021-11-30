@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000012398, y: -52}
+  m_AnchoredPosition: {x: -0.000012398, y: -68}
   m_SizeDelta: {x: 199, y: 52.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9815645
@@ -10443,8 +10443,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 37}
-  m_SizeDelta: {x: 538, y: 66.05}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 22.050003}
+  m_SizeDelta: {x: 538, y: 95.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1306973482
 MonoBehaviour:
@@ -10464,8 +10464,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can usually connect to links ending with " .com" in the bug database
+  m_text: 'You can usually connect to links ending with " .com" in the bug database
     (second tab).
+
+    Remember that you can click "Connect" again to listen into different bugged conversations!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2900fff6e3c71f14fad059b565019b00, type: 2}
   m_sharedMaterial: {fileID: 7458207240704794629, guid: 2900fff6e3c71f14fad059b565019b00,
@@ -10511,7 +10513,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 141
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -10535,12 +10537,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1306973482}
-    characterCount: 86
+    characterCount: 177
     spriteCount: 0
-    spaceCount: 15
-    wordCount: 15
+    spaceCount: 28
+    wordCount: 28
     linkCount: 0
-    lineCount: 2
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

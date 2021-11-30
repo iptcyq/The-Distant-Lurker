@@ -255,7 +255,7 @@ public class BugManager : MonoBehaviour
         }
         else if (currentGameState == GameState.interlude && firstTime)
         {  FindObjectOfType<AudioManager>().Play("connect"); hint1.SetActive(true); firstTime = false; }
-        else if (currentGameState == GameState.stage1 && secondTime)
+        else if (currentGameState == GameState.start && secondTime)
         {  FindObjectOfType<AudioManager>().Play("connect"); hint2.SetActive(true); secondTime = false; }
     }
 
