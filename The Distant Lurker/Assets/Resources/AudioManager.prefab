@@ -87,7 +87,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: 1start
-    clip: {fileID: 8300000, guid: 31133e6807462fb428c1ddc10e977e37, type: 3}
+    clip: {fileID: 8300000, guid: 0a0ab85649bdd184da365aa0b128b863, type: 3}
     group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
@@ -101,7 +101,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: 3stage1
-    clip: {fileID: 8300000, guid: 60009104218ba104bb4c76f86db57470, type: 3}
+    clip: {fileID: 8300000, guid: 2b0dfe6fb34452847b12a023c9851bd5, type: 3}
     group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
     Volume: 1
     Pitch: 1
@@ -122,10 +122,10 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: end
-    clip: {fileID: 8300000, guid: 5f27c745afe15f74e82bf03de46ae242, type: 3}
+    clip: {fileID: 8300000, guid: f7a8cc38eb7667f49832c47babba6a3d, type: 3}
     group: {fileID: 24300002, guid: b6678cbf8b88bb84fa07dec707a0144c, type: 2}
-    Volume: 0.4
-    Pitch: 0.9
+    Volume: 1
+    Pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: interlude

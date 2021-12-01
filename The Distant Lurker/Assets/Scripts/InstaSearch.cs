@@ -22,26 +22,30 @@ public class InstaSearch : MonoBehaviour
     //list thing for all people and names and stuff
     private string[][] results = new string[][]
     {
-         new string[] {"Default1","Default2","Default3"}, //quick test
+         new string[] {"Default1","Default2","Default3"}, //default
          new string[] { "squid", "blank","homescreen" }, //JohnDoe
+         new string[] {"Luciana1", "Luciana2"}, //LUCIANA JOUBERT
          new string[] {"Albino1","Albino2", "Albino3"}, //ALBINO LANGE
          new string[] {"Simon1", "Simon2", "Simon3"},//SIMON SHARP
          new string[] {"Nerthus1", "Nerthus2"}, //NERTHUS ALBANI
          new string[] {"Viona1","Viona2"}, //VIONA SALLER
          new string[] {"Louvre1", "Louvre2"}, //LOUVRE SALLER
          new string[] {"Ipt1","Ipt2"},
+         new string[] {"Default1","Default2","Default3"}, // help
     };
 
     private string[] input = new string[]
     {
         "",//Set as HomeScreen
         "JOHNDOE",
+        "LUCIANAJOUBERT",
         "ALBINOLANGE",
         "SIMONSHARP",
         "NERTHUSALBANI",
         "VIONASALLER",
         "LOUVRESALLER",
-        "IPTCYQ"
+        "IPTCYQ",
+        "HELP"
     };
 
 

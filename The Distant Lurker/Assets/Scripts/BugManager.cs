@@ -52,9 +52,9 @@ public class BugManager : MonoBehaviour
         "*Musical interlude* \n Please enter a link in the field above to connect to your bug. ",
         "UNKNOWN: Hey Luciana, what are your email details again? \n LUCIANA: Full names are always usernames, so Luciana Joubert, and my password is 112233. \n UNKNOWN: Got it, thanks!",
         "UNKNOWN: Hey boss. \n BOSS: We're in a secret organisation, don't call me by my role! \n UNKNOWN: Okay sorry boss. \n \n (Remember that you can click connect again to listen into different bugged conversations!)", 
-        "UNKNOWN: Hey Mr Louvre Saller, have you seen Simon? \n LOUVRE SALLER: Yeah, he's probably by the coffee stand. \n UNKNOWN: Thanks! \n \n (Maybe I can search up the boss's name on Instasnap.)",
+        "UNKNOWN: Hey boss, I mean, Mr Louvre Saller, have you seen Simon? \n LOUVRE SALLER: Yeah, he's probably by the coffee stand. \n UNKNOWN: Thanks!",
         "VIONA SALLER: Dad, what is your bank account password? I want to get a new toy! \n LOUVRE SALLER: Its  c0mp1ic4t3d \n I should probably type it out for you. \n VIONA SALLER: Oh wow ok. \n \n (Remember that you can click connect again to listen into different bugged conversations!)",
-        "VIONA SALLER: Dad, why do your accounts all have the same password? \n LOUVRE SALLER: It's so that it is easy to remember, you'll understand when you're older.",
+        "VIONA SALLER: Dad, why do your accounts all have the same password? \n LOUVRE SALLER: It's so that it is easy to remember, you'll understand when you grow older. \n \n (Remember that you can click connect again to listen into different bugged conversations!)",
         "LOUVRE SALLER: Muahahaha we finally got you in our trap. \n You thought that this was just another regular old job, working for a powerful but illegal organisation to dig up government secrets for a hefty sum of money. \n But no, we are now one step ahead, distant lurker, and you are finally going to face justice. \n Didn’t you ever question the robotic voices that we planted? Or why was this job such a piece of cake? You now have plenty of time to do that, behind bars. \n So long!",
         "Link not found. \n Please enter a link in the field above to connect to your bug. \n (Remember that you can click connect again to listen into different bugged conversations!)",
     };
@@ -180,6 +180,7 @@ public class BugManager : MonoBehaviour
         if (!FindObjectOfType<AudioManager>().audioPlay("theme"))
         {
             FindObjectOfType<AudioManager>().Play("theme");
+            typing = false;
         }
     }
 
@@ -240,9 +241,13 @@ public class BugManager : MonoBehaviour
         {
             textdisp.text += letter;
             yield return new WaitForSeconds(typeSpeed);
+            if (!typing) { typing = true; }
+        }
+        if (FindObjectOfType<AudioManager>().audioPlay("theme"))
+        {
+            typing = false;
         }
 
-        typing = false;
 
         if (currentGameState == GameState.end)
         {
@@ -268,6 +273,7 @@ public class BugManager : MonoBehaviour
             if (currentGameState == GameState.end) //end everything
             {
                 endTab.SetActive(true);
+                
                 FindObjectOfType<AudioManager>().Play("end");
                 tg.OnTabSelected(endtab);
             }
